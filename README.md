@@ -1,0 +1,1 @@
+**This project covers the under-pinnings of Low-Level Programming languages and its's execution. The project is currently based on a High-Level Programming language ( C ) and how it can be compiled to be understood in low-level programming terms.**

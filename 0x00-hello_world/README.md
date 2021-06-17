@@ -1,0 +1,1 @@
+**This file covers the beginning stages of the Programming language ( C ). Here the first steps to understanding C, and using the Betty linker to check for errors in files would be exercised. This project file would be a stepping stone to other High_Level Programming Languages in the future under ALX curriculum**
