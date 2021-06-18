@@ -15,9 +15,9 @@ int n;
 n = 0;
 while (n < 10)
 {
-putchar("%d", n);
+putchar(n);
 n++;
 }
- putchar("\n")
+putchar('\n');
 return (0);
 }
