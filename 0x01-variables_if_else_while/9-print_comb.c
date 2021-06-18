@@ -19,7 +19,7 @@ if (i == 9)
 {
 putchar(',');
 putchar(' ');
-continue
+continue;
 }
 }
 putchar('\n');
