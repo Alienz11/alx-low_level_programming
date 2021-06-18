@@ -14,7 +14,8 @@ int main(void)
 int fd;
 int md;
 int ld;
-for (int c = 0; c < 1000; c++)
+int c;
+for (c = 0; c < 1000; c++)
 {
 fd = (c / 100 + '0');
 md = (c / 10 % 10 + '0');
@@ -30,7 +31,6 @@ putchar(',');
 putchar(' ');
 }
 }
-c++;
 }
 putchar('\n');
 return (0);
