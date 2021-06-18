@@ -17,6 +17,6 @@ for (ch = 'z'; ch >= 'a'; ch--)
 {
 putchar(ch);
 }
-purchar('\n');
+putchar('\n');
 return (0);
 }
