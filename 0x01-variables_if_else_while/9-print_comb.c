@@ -22,8 +22,8 @@ putchar(' ');
 }
 else
 {
+putchar('\0')
 }
 }
-putchar();
 return (0);
 }
