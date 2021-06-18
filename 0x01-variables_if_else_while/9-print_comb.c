@@ -24,6 +24,6 @@ else
 {
 }
 }
-putchar('\n');
+putchar();
 return (0);
 }
