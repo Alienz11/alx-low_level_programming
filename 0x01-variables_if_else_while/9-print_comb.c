@@ -6,7 +6,7 @@
  * main - Entry point
  *
  * Return: Always 0 (Success)
- */
+*/
 
 int main(void)
 
@@ -22,7 +22,7 @@ putchar(' ');
 }
 else
 {
-putchar('\0')
+putchar('\0');
 }
 }
 return (0);
