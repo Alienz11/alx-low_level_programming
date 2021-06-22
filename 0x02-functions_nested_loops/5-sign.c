@@ -27,5 +27,5 @@ else
 return (-1);
 _putchar('-');
 }
-_putchar('\n')
+_putchar('\n');
 }
