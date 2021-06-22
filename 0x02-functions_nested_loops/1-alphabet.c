@@ -12,6 +12,8 @@
 void print_alphabet(void)
 
 {
+unsigned int c;
+
 for (c = a; c <= z; c++)
 {
 _putchar(c);
