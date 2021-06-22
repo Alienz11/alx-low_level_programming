@@ -10,10 +10,9 @@
  * Return: Always 0 (Success)
  */
 
-int add(int x, int y);
-
+int add(int x, int y)
 {
-int c;
-c = (x + y);
-return (x + y);
+int i;
+i = x + y;
+return (i);
 }
