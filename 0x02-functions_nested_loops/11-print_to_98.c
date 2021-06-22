@@ -4,22 +4,22 @@
 #include "holberton.h"
 
 /**
- * print_to_98 - check the code for Alx school students.
- * @n: argument of function.
- * Return: Always 0 (Success)
+ * print_to_98 - print all natural numbers from n to 98.
+ * @c: the number to start counting from to 98
+ * Return: void returns nothing.
  */
-
-void print_to_98(int n)
-
+void print_to_98(int c)
 {
-for (n = 0; n <= 98; n++)
+if (c < 98)
 {
-_putchar(n);
-if (n <= 97)
-{
-_putchar(',');
-_putchar(' ');
+for (c = c; c < 98; c++)
+printf("%d, ", c);
+printf("%d\n", 98);
 }
+else
+{
+for (c = c; c > 98; c--)
+printf("%d, ", c);
+printf("%d\n", 98);
 }
-_putchar('\n');
 }
