@@ -2,25 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 #include "holberton.h"
-
 /**
- * print_last_digit - check the code for Alx school students.
- * @c: argument of function.
- * Return: Always 0 (Success)
+ * _abs - returns -n if n is less than 0 otherwise n
+ * @n: integer to be tested
+ * Return: _abs(n)
  */
-
-int print_last_digit(int c)
+int _abs(int n)
 {
-
-if (c >= 0)
-{
-_putchar(c % 10 + '0');
-return (c % 10);
-}
+if (n >= 0)
+return (n);
 else
-{
-c = c * -1;
-_putchar(c % 10 + '0');
-return (c % 10);
+return (-1 * n);
 }
+/**
+ * print_last_digit - prints the last digit of a number
+ * @n: integer whose last digit is to be printed
+ * Return: lastdigit
+ */
+int print_last_digit(int n)
+{
+int lastDigit;
+
+lastDigit = _abs((n % 10));
+_putchar(lastDigit + 48);
+return (lastDigit);
 }
