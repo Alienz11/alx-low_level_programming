@@ -12,7 +12,7 @@
 void print_alphabet(void)
 
 {
-unsigned int c;
+char c;
 
 for (c = a; c <= z; c++)
 {
