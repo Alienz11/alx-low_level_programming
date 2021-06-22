@@ -13,7 +13,7 @@ int main(void)
 
 {
 char ch[9] = {'H', 'o', 'l', 'b', 'e', 'r', 't', 'o', 'n'};
-int c;
+unsigned int c;
 for (c = 0; c < sizeof(ch); c++)
 {
 _putchar(ch[c]);
