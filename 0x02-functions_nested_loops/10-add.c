@@ -10,7 +10,7 @@
  * Return: Always 0 (Success)
  */
 
-int add(int x, int y)
+int add(int x, int y);
 
 {
 int c;
