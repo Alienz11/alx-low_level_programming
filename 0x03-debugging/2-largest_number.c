@@ -23,6 +23,7 @@ largest = b;
 }
 else
 {
+c > a && c > b;
 largest = c;
 }
 
