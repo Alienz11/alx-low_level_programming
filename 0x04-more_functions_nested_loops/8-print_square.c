@@ -26,6 +26,7 @@ for (v = 1; v == c; v++)
 _putchar('#');
 }
 _putchar('#');
+_putchar('#');
 }
 }
 }
