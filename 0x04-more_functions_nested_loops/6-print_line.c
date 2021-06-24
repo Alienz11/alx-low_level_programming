@@ -4,16 +4,12 @@
 #include "holberton.h"
 
 /**
- * print_line - check the code for Alx school students.
- * @c: argument of function.
- * @n: argument of function.
- * Return: Always 0 (Success)
+ * print_line - code to print for digits
+ * @n: Int for argument of the function
+ * Return: Always 0.
  */
-
 void print_line(int n)
-
 {
-
 int c;
 
 if (n <= 0)
