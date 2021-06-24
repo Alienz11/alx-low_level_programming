@@ -6,7 +6,7 @@
  *@c: parameter the int will use to check for the argument of the function
  * Return: Always 0.
  */
-int _isupper(int c)
+int _isdigit(int c)
 {
 if (c >= '0' &&  c <= '9')
 {
