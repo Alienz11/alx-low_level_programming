@@ -4,14 +4,14 @@
 #include "holberton.h"
 
 /**
- * print_line - code to print for digits
+ * print_diagonal - code to print backslashes to make a diagonal line.
  * @n: Int for argument of the function
  * Return: Always 0.
  */
 void print_diagonal(int n)
 
 {
-int c,v;
+int c, v;
 
 if (n <= 0)
 {
@@ -27,5 +27,6 @@ for (c = 1; c <= n; c++)
 {
 _putchar('\\');
 _putchar('\n');
+}
 }
 }
