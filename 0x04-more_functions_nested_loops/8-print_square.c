@@ -21,11 +21,10 @@ else
 {
 for (c = 1; c <= size; c++)
 {
-for (v = 1; v == c; v++)
+for (v <= c)
 {
 _putchar('#');
 }
-_putchar(c);
 _putchar('\n');
 }
 }
