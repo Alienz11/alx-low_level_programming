@@ -5,20 +5,27 @@
 
 /**
  * print_line - check the code for Alx school students.
- * 
+ * @c: argument of function.
+ * @n: argument of function.
  * Return: Always 0 (Success)
  */
 
 void print_line(int n)
 
 {
-if (n >= 1)
+
+int c;
+
+if (n <= 0)
+{
+_putchar('\n');
+}
+else
+{
+for (c = 1; c <= n; c++)
 {
 _putchar('_');
 }
-else
-{   
-_putchar('0');
-}
 _putchar('\n');
+}
 }
