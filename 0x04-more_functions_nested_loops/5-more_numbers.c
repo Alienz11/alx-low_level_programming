@@ -13,11 +13,16 @@ void more_numbers(void)
 
 {
 int n;
-for (n = 0; n <= 10; n++)
+int c;
+for (c = 0; c <= 9; c++)
 {
-for (n = 0; n <= 14; n++)
+for (n = 0; n <= 14; i++)
 {
-_putchar(n + '0');
+if (n >= 10)
+{
+_putchar((n / 10) + '0');
+}
+_putchar((n % 10) + '0');
 }
 _putchar('\n');
 }
