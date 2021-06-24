@@ -2,7 +2,7 @@
 #include "holberton.h"
 
 /**
- * print_numbers - check the code for Alx school students.
+ * print_numbers - a code to print out numbers.
  *
  * Return: Always 0.
  */
