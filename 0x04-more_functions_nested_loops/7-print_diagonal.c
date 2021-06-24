@@ -19,7 +19,7 @@ _putchar('\n');
 }
 else
 {
-for (j = 1; j < i; j++)
+for (v = 1; v < i; v++)
 {
 _putchar(' ');
 }
