@@ -11,8 +11,7 @@
 void print_diagonal(int n)
 
 {
-int c;
-int v;
+int c, v;
 
 if (n <= 0)
 {
@@ -20,11 +19,11 @@ _putchar('\n');
 }
 else
 {
+for (c = 1; c <= n; c++)
+{
 for (v = 1; v < c; v++)
 {
 _putchar(' ');
-}
-for (c = 1; c <= n; c++)
 {
 _putchar('\\');
 _putchar('\n');
