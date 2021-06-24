@@ -2,7 +2,7 @@
 #include "holberton.h"
 
 /**
- * _isupper - check the code for uppercase
+ * _isdigit - check the code for digits
  *@c: parameter the int will use to check for the argument of the function
  * Return: Always 0.
  */
