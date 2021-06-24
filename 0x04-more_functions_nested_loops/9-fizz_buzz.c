@@ -1,37 +1,39 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include "holberton.h"
-
+#include <stdlib.h>
 /**
- * main - check the code for Alx school students.
+ * main - code to print for digits
  *
- * Return: Always 0 (Success)
+ * Return: Always 0.
  */
-
 int main(void)
-
 {
 int i;
+char f[] = "Fizz";
+char b[] = "Buzz";
+char fb[] = "FizzBuzz";
 
-for (i = 0; i <= 100; i++)
+for (i = 1; i <= 100; i++)
 {
-if (i % 3 == 0)
+if (i == 100)
 {
-printf("Fizz ");
-}
-else if (i % 5 == 0)
-{
-printf("Buzz ");
+printf("%s", b);
 }
 else if (i % 3 == 0 && i % 5 == 0)
 {
-printf("FizzBuzz ");
+printf("%s ", fb);
+}
+else if (i % 3 == 0)
+{
+printf("%s ", f);
+}
+else if (i % 5 == 0)
+{
+printf("%s ", b);
 }
 else
-{
 printf("%d ", i);
 }
-}
+printf("\n");
 return (0);
 }
