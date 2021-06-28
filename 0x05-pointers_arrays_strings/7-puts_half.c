@@ -4,12 +4,12 @@
 #include "holberton.h"
 
 /**
- * puts2 - check the code for Alx school students.
+ * puts_half - check the code for Alx school students.
  * @str: argument of function.
  * Return: void
  */
 
-void puts2(char *str)
+void puts_half(char *str)
 
 {
 int i;
