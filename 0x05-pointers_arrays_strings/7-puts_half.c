@@ -13,9 +13,16 @@ void puts_half(char *str)
 
 {
 int i;
-for (i = 0; str[i] != 0; i++)
+if (i % 2 == 0)
 {
-if (i >= str[i] / 2)
+for (i = i / 2; i <= str[i] - 1; i++)
+{
+_putchar(str[i]);
+}
+}
+else
+{
+for (i = (i / 2) + 1; i <= str[i] - 1; i++)
 {
 _putchar(str[i]);
 }
