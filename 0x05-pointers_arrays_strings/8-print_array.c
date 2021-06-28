@@ -17,7 +17,7 @@ for (n = 0; a[n] != 0; n++)
 {
 if (n <= '\0' - 1)
 {
-printf("%d, ", a[n]);
+printf("%d",",","", a[n]);
 }
 else
 {
