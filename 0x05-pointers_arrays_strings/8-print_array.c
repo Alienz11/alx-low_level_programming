@@ -17,11 +17,12 @@ for (n = 0; a[n] != 0; n++)
 {
 if (n <= '\0' - 1)
 {
-printf("%d, \n", a[n]);
+printf("%d, ", a[n]);
 }
 else
 {
-printf("%d\n", a[n]);
+printf("%d", a[n]);
 }
 }
+_putchar('\n')
 }
