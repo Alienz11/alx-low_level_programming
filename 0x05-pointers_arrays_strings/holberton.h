@@ -14,6 +14,9 @@ int _putchar(char);
 void print_rev(char *s);
 void rev_string(char *s);
 #include <string.h>
+void puts2(char *str);
+
+
 
 
 #endif /* HOLBERTON_H */
