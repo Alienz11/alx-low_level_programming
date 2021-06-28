@@ -13,12 +13,11 @@
 void _puts(char *str)
 
 {
-char str[] = {"I fear the lack of them - Isaac Asimov"};
 int i;
 
 for (i = 0; str[i] >= 0; i++)
 {
-_putchar(i);
+_putchar(str[i]);
 }
 _putchar('\n');
 }
