@@ -6,7 +6,7 @@
 /**
  * _strlen - check the code for Alx school students.
  * @s: argument of function.
- * @i: argument of function.
+ *
  * Return: Always 0 (Success)
  */
 
