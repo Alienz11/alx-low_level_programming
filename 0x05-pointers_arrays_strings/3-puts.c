@@ -5,9 +5,9 @@
 
 /**
  * _puts - check the code for Alx school students.
- * char - check the code for Alx school students.
+ * @str: string value neccesary for the argument.
  *
- * Return: Always 0 (Success)
+ * Return: void
  */
 
 void _puts(char *str)
@@ -15,7 +15,7 @@ void _puts(char *str)
 {
 int i;
 
-for (i = 0; str[i] >= 0; i++)
+for (i = 0; str[i] != 0; i++)
 {
 _putchar(str[i]);
 }
