@@ -1,0 +1,1 @@
+**This folder/directory displays all the under-pinnings of arrays, pionters and strings in C programming language**
