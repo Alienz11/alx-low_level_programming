@@ -13,7 +13,7 @@ void _puts(char *str);
 int _putchar(char);
 void print_rev(char *s);
 void rev_string(char *s);
-
+#include <string.h>
 
 
 #endif /* HOLBERTON_H */
