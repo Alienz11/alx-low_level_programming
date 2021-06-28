@@ -13,16 +13,20 @@
 void print_array(int *a, int n)
 
 {
-for (n = 0; a[n] != 0; n++)
+int x;
+
+for (x = 0; x < n; x++)
 {
-if (n <= '\0' - 1)
+if (x == (n - 1))
 {
-  printf("%s%c%c", a[n], ,, space);
+printf("%d", *a);
+a++;
 }
 else
 {
-printf("%d", a[n]);
+printf("%d, ", *a);
+a++;
 }
 }
-_putchar('\n');
+printf("\n");
 }
