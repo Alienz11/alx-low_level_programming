@@ -14,6 +14,7 @@ void print_array(int *a, int n);
 
 {
 for (n = 0; a[n] != 0; n++)
+{
 if (n <= '\0' - 1)
 {
 printf("%d, \n", a[n]);
@@ -21,4 +22,6 @@ printf("%d, \n", a[n]);
 else
 {
 printf("%d\n", a[n]);
+}
+}
 }
