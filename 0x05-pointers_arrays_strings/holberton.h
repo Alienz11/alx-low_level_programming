@@ -15,6 +15,8 @@ void print_rev(char *s);
 void rev_string(char *s);
 #include <string.h>
 void puts2(char *str);
+void puts_half(char *str);
+
 
 
 
