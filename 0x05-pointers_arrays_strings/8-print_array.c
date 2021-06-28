@@ -24,5 +24,5 @@ else
 printf("%d", a[n]);
 }
 }
-_putchar('\n')
+_putchar('\n');
 }
