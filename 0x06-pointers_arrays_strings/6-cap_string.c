@@ -4,13 +4,13 @@
 #include "holberton.h"
 
 /**
- * string_toupper - check the code for Alx school students.
+ * cap_string - check the code for Alx school students.
  *
  * @str: Name of array
  * Return: Always 0 (Success)
  */
 
-char *string_toupper(char *str)
+char *cap_string(char *s)
 
 {
 int c, v;
