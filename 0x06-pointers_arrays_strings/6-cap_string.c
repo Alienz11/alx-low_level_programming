@@ -10,7 +10,7 @@
  * Return: Always 0 (Success)
  */
 
-char *cap_string(char *s)
+char *cap_string(char *str)
 
 {
 int c, v;
