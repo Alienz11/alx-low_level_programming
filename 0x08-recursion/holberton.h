@@ -21,8 +21,8 @@ int squarecheck(int n, int j);
 int primecheck(int n, int i, int limit);
 int _strlen(char *s);
 int palindrome_check(char *s, int len, int i);
-
-
-
+int strlen_no_wilds(char *str);
+void iterate_wild(char **wildstr);
+char *postfix_match(char *str, char *postfix);
 
 #endif /*_HOLBERTON_H_*/
