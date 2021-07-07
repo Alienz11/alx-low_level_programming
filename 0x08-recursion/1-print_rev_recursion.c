@@ -18,7 +18,7 @@ if (*s == '\0')
 {
 _putchar('\n');
 }
-else
+return;
 {
 _print_rev_recursion(s + 1);
 _putchar(*s);
