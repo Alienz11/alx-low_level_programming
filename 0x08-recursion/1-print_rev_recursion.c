@@ -20,8 +20,7 @@ _putchar('\n');
 }
 else
 {
-*s = (*s - 1);
-_print_rev_recursion(s + 1);
+_print_rev_recursion(s - 1);
 _putchar(*s);
 }
 }
