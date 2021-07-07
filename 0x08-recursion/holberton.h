@@ -19,6 +19,8 @@ int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
 int squarecheck(int n, int j);
 int primecheck(int n, int i, int limit);
+int _strlen(char *s);
+int palindrome_check(char *s, int len, int i);
 
 
 
