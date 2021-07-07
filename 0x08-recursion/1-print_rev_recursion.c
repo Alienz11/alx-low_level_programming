@@ -13,24 +13,15 @@
 void _print_rev_recursion(char *s)
 
 {
-int i = 0;
-int j;
 
-while (i < *s)
-{
-j = s[i];
-s[i] = s[i - 1];
-s[i - 1] = j;
-i++;
-s--;
-}
 if (*s == '\0')
 {
 _putchar('\n');
 }
 else
 {
-_putchar(*s);
+*s = (*s - 1);
 _print_rev_recursion(s + 1);
+_putchar(*s);
 }
 }
