@@ -1,2 +1,2 @@
 #!/bin/bash
-ar rc liball.a *.c
+cc main.o -L. -lutil -o prog
