@@ -1,2 +1,3 @@
 #!/bin/bash
-cc main.o -L. -lutil -o prog
+gcc -c ./*c -o
+ar rc liball.a *.o
