@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 int i;
 int j;
 int sum;
-
+(void)argc;
 if (argc >= 3)
 {
 for (i = 1; i < argc; i++)
