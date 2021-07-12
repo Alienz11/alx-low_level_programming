@@ -13,37 +13,25 @@
 
 int main(int argc, char *argv[])
 {
-int i;
-int j;
-int sum;
-(void)argc;
-if (argc >= 3)
+int i = 1, sum, j = 0;
+(void) argc;
+if (argc < 1)
 {
-for (i = 1; i < argc; i++)
-{
-if (atoi(argv[i]) >= -10000 && atoi(argv[i]) <= 10000)
-{
-sum += atoi(argv[i]);
+printf("%d\n", 0);
 }
-else
+while (i < argc)
 {
-printf("Error\n");
-return (1);
+while (argv[i][j] != '\0')
+{
+if (!(isdigit(argv[i][j])))
+{
+return (printf("Error\n"), 1);
 }
+j++;
+}
+sum += (atoi(argv[i]));
+i++;
 }
 printf("%d\n", sum);
-}
-
-if (argc == 2)
-{
-j = atoi(argv[1]);
-printf("%d\n", j);
-}
-
-if (argc <= 1)
-{
-printf("0\n");
-}
-
 return (0);
 }
