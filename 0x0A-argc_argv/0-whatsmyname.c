@@ -10,7 +10,7 @@
  * Return: Always 0 (Success)
  */
 
-int _name_the_file(int argc, char **argv)
+int main(int argc, char **argv)
 
 {
 (void)argc;
