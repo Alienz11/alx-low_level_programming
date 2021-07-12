@@ -13,16 +13,15 @@
 
 int main(int argc, char *argv[])
 {
-int cent;
-int change;
-
-if (argc == 2)
+int cent, change;
+if (argc != 2)
 {
-if (atoi(argv[1]) > 0)
-{
+return (printf("Error\n"), 1);
+}
 cent = atoi(argv[1]);
-for (change = 0; cent > 0; change++)
+while (cent > 0)
 {
+change++;
 if ((cent - 25) >= 0)
 {
 cent -= 25;
@@ -51,18 +50,5 @@ continue;
 cent--;
 }
 printf("%d\n", change);
-}
-
-else
-{
-printf("0\n");
-}
-}
-
-else
-{
-printf("Error\n");
-return (1);
-}
 return (0);
 }
