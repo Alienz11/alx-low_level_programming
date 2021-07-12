@@ -12,6 +12,7 @@
 
 int main(int argc, char *argv[])
 {
+(void)argv;
 int i;
 i = atoi(argv[1]) * atoi(argv[2]);
 if (argc == 3)
