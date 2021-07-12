@@ -4,7 +4,7 @@
 #include "holberton.h"
 
 /**
- * _name_the_file - To creat a function that names the file even when renamed.
+ * main - To creat a function that names the file even when renamed.
  * @argc: argument of function.
  * @argv: argument of function.
  * Return: Always 0 (Success)
