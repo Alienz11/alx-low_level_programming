@@ -9,9 +9,4 @@
 
 int main(int argc, char **argv);
 
-
-
-
-
-
 #endif /*_HOLBERTON_H_*/
