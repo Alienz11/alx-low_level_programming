@@ -13,9 +13,8 @@
 int main(int argc, char **argv)
 {
 (void)**argv;
-for (argc = 0; *argv[argc] != '\0'; argc++)
 {
-printf("%d\n", argc);
+printf("%d\n", argc - 1);
 }
 return (0);
 }
