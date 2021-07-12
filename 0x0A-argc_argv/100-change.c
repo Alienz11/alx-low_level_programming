@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
 int cent;
-int change;  
+int change;
 
 if (argc == 2)
 {
@@ -48,7 +48,7 @@ if ((cent - 1) >= 0)
 cent -= 1;
 continue;
 }
-cent --;
+cent--;
 }
 printf("%d\n", change);
 }
