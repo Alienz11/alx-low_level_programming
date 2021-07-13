@@ -26,16 +26,15 @@ if (array == NULL)
 {
 return (NULL);
 }
-for (i = 0; str[i] != '\0'; i++)
+i = 0
+while (str[i] != '\0')
 {
 if (str == NULL)
 {
 return (0);
 }
-else
-{
 array[i] = str[i];
-}
+i++;
 }
 return (array);
 }
