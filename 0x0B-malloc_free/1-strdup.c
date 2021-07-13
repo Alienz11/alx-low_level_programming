@@ -30,7 +30,7 @@ for (i = 0; str[i] != '\0'; i++)
 {
 if (str == NULL)
 {
-return (NULL);
+return (0);
 }
 array[i] = str[i];
 }
