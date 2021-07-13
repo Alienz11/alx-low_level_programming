@@ -16,12 +16,17 @@ unsigned int len = 0;
 unsigned int i = 0;
 char *array;
 
+if (str == NULL)
+{
+return (NULL);
+}
+
 while (str[i] != '\0')
 {
 len++;
 i++;
 }
-array = malloc(len * (sizeof(char)));
+array = malloc((len * (sizeof(char))) + 1);
 if (array == NULL)
 {
 return (NULL);
@@ -29,10 +34,6 @@ return (NULL);
 i = 0;
 while (str[i] != '\0')
 {
-if (str == NULL)
-{
-return (NULL);
-}
 array[i] = str[i];
 i++;
 }
