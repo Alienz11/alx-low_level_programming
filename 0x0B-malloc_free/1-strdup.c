@@ -32,7 +32,10 @@ if (str == NULL)
 {
 return (0);
 }
+else
+{
 array[i] = str[i];
+}
 }
 return (array);
 }
