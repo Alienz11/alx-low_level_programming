@@ -4,8 +4,9 @@
 #include "holberton.h"
 
 /**
- * _strdup - check the code for Alx school students.
- * @str: argument of function.
+ * str_concat - check the code for Alx school students.
+ * @s1: argument of function.
+ * @s2: argument of function.
  * Return: Always 0 (Success)
  */
 
