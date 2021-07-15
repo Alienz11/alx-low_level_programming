@@ -25,14 +25,17 @@ if (nmemb == 0)
 return (NULL);
 }
 str = malloc(size * nmemb);
+
+if (str == NULL)
+{
+return (NULL);
+}
+
 set = str;
 for (i = 0; i < (size * nmemb); i++)
 {
 set[i] = 0;
 }
-if (str == NULL)
-{
-return (NULL);
-}
+
 return (str);
 }
