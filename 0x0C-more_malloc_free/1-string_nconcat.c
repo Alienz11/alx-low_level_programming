@@ -13,15 +13,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 int i, j, len1 = n;
 unsigned int len2 = 0;
-char *s3;
-
+char *s3, empty;
+empty = "";
 if (s1 == NULL)
 {
-s1 = "";
+s1 = empty;
 }
 if (s2 == NULL)
 {
-s2 = "";
+s2 = empty;
 }
 for (i = 0; s1[i] != '\0'; i++)
 {
@@ -36,14 +36,15 @@ if (s3 == NULL)
 {
 return (NULL);
 }
+len1 = 0;
 for (i = 0; s1[i] != '\0'; i++)
 {
-s3[i] = s1[i];
+s3[len1++] = s1[i];
 }
-for (j = 0; s2[j] != '\0'; j++, i++)
+for (j = 0; s2[j] && i < n; j++)
 {
-s3[i] = s2[j];
-s3[i] = '\0';
+s3[len1++] = s2[j];
+s3[len1] = '\0';
 }
 return (s3);
 }
