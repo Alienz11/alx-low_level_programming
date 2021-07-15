@@ -47,7 +47,7 @@ return (NULL);
 }
 sub = str;
 
-for (i = 0; i < old_size && i < new_size; i)
+for (i = 0; i < old_size && i < new_size; i++)
 sub[i] = *ptr_dup++;
 
 free(ptr);
