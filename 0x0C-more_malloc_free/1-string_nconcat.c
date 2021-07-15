@@ -16,20 +16,34 @@ unsigned int len2 = 0;
 char *s3;
 
 if (s1 == NULL)
+{
 s1 = "";
+}
 if (s2 == NULL)
+{
 s2 = "";
+}
 for (i = 0; s1[i] != '\0'; i++)
+{
 len1++;
+}
 for (j = 0; s2[j] != '\0'; j++)
+{
 len2++;
+}
 s3 = malloc(sizeof(char) * (len1 + 1));
 if (s3 == NULL)
+{
 return (NULL);
+}
 for (i = 0; s1[i] != '\0'; i++)
+{
 s3[i] = s1[i];
+}
 for (j = 0; s2[j] != '\0'; j++, i++)
+{
 s3[i] = s2[j];
 s3[i] = '\0';
+}
 return (s3);
 }
