@@ -6,8 +6,15 @@
  * Typedefs
  * Function prototypes
  */
+/**
+ * struct dog - A struct fuction taht gives details of a dog.
+ * @name: vriable to print name of dog.
+ * @age: variable to print age of dog.
+ * @owner: variable to print owner of dog.
+ *
+ */
 
-struct dog
+typedef struct dog
 {
 char *name;
 float age;
