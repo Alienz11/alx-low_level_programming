@@ -1,32 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "3-calc.h"
 
 /**
- * main - check the code for Alx school students.
- * @argc: argument counter.
- * @argv: argument value.
- * Return: Always 0 (Success)
+ * main - Entry point
+ * @argc: argument count
+ * @argv: argument string
+ * Return: Final answer from operation
  */
 
 int main(int argc, char *argv[])
 {
-int a, b, result;
-a = atoi(argv[1]);
-b = atoi(argv[3]);
+int a, b, answer;
+int (*f)(int, int);
 
 if (argc != 4)
 {
 printf("Error\n");
 exit(98);
 }
-if (get_op_func(argv[2]) == NULL)
+
+a = atoi(argv[1]);
+b = atoi(argv[3]);
+
+f = get_op_func(argv[2]);
+if (f == NULL)
 {
 printf("Error\n");
 exit(99);
 }
-result = (get_op_func(argv[2]))(a, b);
-printf("%d\n", result);
+answer = f(a, b);
+printf("%d\n", answer);
 return (0);
 }

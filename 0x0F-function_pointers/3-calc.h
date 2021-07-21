@@ -1,14 +1,8 @@
-#ifndef _3_calc_h_
-#define _3_calc_h_
+#ifndef _CALC_H
+#define _CALC_H
 
-/*
- * Structs, enums and unions definitions
- * Typedefs
- * Function prototypes
- */
 /**
  * struct op - Struct op
- *
  * @op: The operator
  * @f: The function associated
  */
@@ -26,5 +20,4 @@ int op_div(int a, int b);
 int op_mod(int a, int b);
 int (*get_op_func(char *s))(int, int);
 
-
-#endif /*_3_calc_h_*/
+#endif

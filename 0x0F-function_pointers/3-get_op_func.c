@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "3-calc.h"
+#include <string.h>
 
 /**
- * get_op_func - a function that uses a funtion pointer to interact.
- * @s: argument of function.
- * Return: Always 0 (Success)
+ * get_op_func - function to get operator
+ * @s: operator
+ *
+ * Return: pointer to operator function
  */
 
 int (*get_op_func(char *s))(int, int)
@@ -20,6 +20,7 @@ op_t ops[] = {
 {NULL, NULL}
 };
 int i;
+
 i = 0;
 while (ops[i].op != NULL)
 {
