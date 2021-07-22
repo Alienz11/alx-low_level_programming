@@ -17,12 +17,11 @@ va_list ap;
 unsigned int i, list;
 
 va_start(ap, n);
-separator = ",";
 for (i = 0; i < n; i++)
 {
 list = va_arg(ap, unsigned int);
 printf("%d", list);
-if (i >= (n - 1) || separator == NULL)
+if (i == (n - 1) || separator == NULL)
 {
 break;
 }
