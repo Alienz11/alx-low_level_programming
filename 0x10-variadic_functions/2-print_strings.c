@@ -26,7 +26,10 @@ if (list == NULL)
 {
 printf("(nil)");
 }
+else
+{
 printf("%s", list);
+}
 if (i != (n - 1) && separator != NULL)
 {
 printf("%s", separator);
