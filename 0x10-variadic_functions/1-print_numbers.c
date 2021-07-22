@@ -14,19 +14,20 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 va_list ap;
-unsigned int i, list;
+unsigned int i;
+int list;
 
 va_start(ap, n);
 for (i = 0; i < n; i++)
 {
-list = va_arg(ap, unsigned int);
+list = va_arg(ap, int);
 printf("%d", list);
-if (i == (n - 1) || separator == NULL)
+if (i != (n - 1) && separator != NULL)
 {
-break;
-}
 printf("%s ", separator);
+}
 }
 printf("\n");
 va_end(ap);
 }
+
