@@ -18,13 +18,14 @@ unsigned int i;
 int list;
 
 va_start(ap, n);
+
 for (i = 0; i < n; i++)
 {
 list = va_arg(ap, int);
 printf("%d", list);
 if (i != (n - 1) && separator != NULL)
 {
-printf("%s ", separator);
+printf("%s", separator);
 }
 }
 printf("\n");
