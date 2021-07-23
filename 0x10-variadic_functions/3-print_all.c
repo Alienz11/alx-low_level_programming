@@ -74,7 +74,7 @@ printf("%c", c);
 }
 
 /**
- * print_double - function that prints decimals.
+ * print_float - function that prints decimals.
  * @arg: argument of function.
  * Return: Always 0 (Success)
  */

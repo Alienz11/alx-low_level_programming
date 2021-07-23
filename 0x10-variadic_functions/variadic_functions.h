@@ -12,7 +12,7 @@ void print_all(const char * const format, ...);
 /**
  * struct print - A struct fuction taht gives details of a dog.
  * @view: vriable to print name of dog.
- * @arg: variable to print age of dog.
+ *
  * @share: vriable to print name of dog.
  */
 
