@@ -11,15 +11,15 @@ void print_all(const char * const format, ...);
 
 /**
  * struct print - A struct fuction taht gives details of a dog.
- * @format: vriable to print name of dog.
+ * @view: vriable to print name of dog.
  * @arg: variable to print age of dog.
- *
+ * @share: vriable to print name of dog.
  */
 
 typedef struct print
 {
 char *view;
 void (*share)(va_list arg);
-}print_t;
+} print_t;
 
 #endif /*_variadic_functions_h_*/
