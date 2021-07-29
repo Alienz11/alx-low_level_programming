@@ -3,11 +3,11 @@
 #include <stddef.h>
 
 /**
- * struct list_s - struct for a singly linked string
+ * struct list - struct for a singly linked string
  * @str: String saved in a assigned memory
  * @len: length of the string
  * @next: pointer to the next node
- *
+ * Description: struct for a singly list.
  */
 
 typedef struct list
