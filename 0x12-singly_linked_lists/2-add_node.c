@@ -6,7 +6,7 @@
 /**
  * add_node - A stringlist funtion to print a list.
  * @head: Argument variable of the function.
- * @head: Argument variable of the function.
+ * @str: Argument variable of the function.
  * Return: Amount of nodes counted
  */
 list_t *add_node(list_t **head, const char *str)
