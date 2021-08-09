@@ -39,7 +39,7 @@ if (readfun == -1)
 return (0);
 
 writefun = write(STDOUT_FILENO, buffer, readfun);
-if (readfun == -1)
+if (writefun == -1)
 return (0);
 
 free(buffer);
