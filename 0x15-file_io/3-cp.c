@@ -43,7 +43,7 @@ close_fd(to_fd);
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 exit(98);
 }
-copy_contents(from_fd, to_fd, argv[2]);
+copy_contents(from_fd, to_fd, argv[1], argv[2]);
 close_fd(from_fd), close_fd(to_fd);
 return (0);
 }
