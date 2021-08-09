@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "main.h"
+#include "holberton.h"
 
 /**
  * read_textfile - A function that creates a file that reads text.
@@ -38,12 +38,12 @@ readfun = read(fd, buffer, letters);
 if (readfun == -1)
 return (0);
 
-writefun = read(STDOUT_FILENO, buffer, readfun);
+writefun = write(STDOUT_FILENO, buffer, readfun);
 if (readfun == -1)
 return (0);
 
-free (buffer);
-close (fd);
+free(buffer);
+close(fd);
 
 return (writefun);
 }
