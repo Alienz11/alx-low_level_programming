@@ -65,10 +65,10 @@ exit(100);
  * copy_contents - Copies the contents from one file to another
  * @from_fd: The source file handle
  * @to_fd: The destination file handle
+ * @src_file: The source file name
  * @dest_file: The destination file name
  */
-
-void copy_contents(int from_fd, int to_fd, char *dest_file)
+void copy_contents(int from_fd, int to_fd, char *src_file, char *dest_file)
 {
 int i, c, buf_size = 1024;
 void *buf = malloc(sizeof(char) * buf_size);
@@ -80,9 +80,15 @@ for (i = 0; ; i += buf_size)
 c = read(from_fd, buf, buf_size);
 if (c == 0)
 break;
+if (c < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src_file);
+exit(98);
+}
 if (write(to_fd, buf, c) != c)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest_file);
+free(buf);
 exit(99);
 }
 }
