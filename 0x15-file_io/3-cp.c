@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 void close_fd(int fd);
-void copy_contents(int from_fd, int to_fd, char *dest_file);
+void copy_contents(int from_fd, int to_fd, char *src_file, char *dest_file);
 
 /**
  * main - Copies the content of a file to another file
