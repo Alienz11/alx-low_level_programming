@@ -1,4 +1,7 @@
 #include "main.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
 #include <stdio.h>
 #include <elf.h>
 #include <inttypes.h>
