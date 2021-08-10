@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include <elf.h>
 
 #define ELF32_HEADER_SIZE (sizeof(Elf32_Ehdr))
 #define ELF64_HEADER_SIZE (sizeof(Elf64_Ehdr))
