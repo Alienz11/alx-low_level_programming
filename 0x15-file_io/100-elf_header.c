@@ -1,158 +1,174 @@
 #define _POSIX_C_SOURCE 200809L
-#include <elf.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <inttypes.h>
+
+#define ELF32_HEADER_SIZE (sizeof(Elf32_Ehdr))
+#define ELF64_HEADER_SIZE (sizeof(Elf64_Ehdr))
+
 
 /**
- * read_error - function that exits the program
- * @argv: argument
+ * ensure_endianness - ensures endianness
+ * @little_e: whether data is little endian
+ * @data: data to ensure
+ * @len: lenth of data
+ *
  * Return: void
  */
-
-void read_error(char *argv)
+void ensure_endianness(char little_e, void *data, unsigned int len)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv);
-exit(98);
+unsigned long num = 1, i = 0;
+char _little_e = ((num >> 8) << 8 != num), tmp, *_data = data;
+
+if (little_e != _little_e)
+for (i = 0; i < len / 2; i++)
+tmp = _data[i], _data[i] = _data[len - i - 1], _data[len - i - 1] = tmp;
 }
+
 /**
- * check_elf - function that checks the format of the file, prints magic num
- * @header: pointer to the ELF header struct
+ * put_err - prints a string to the standard error file
+ * @str: string to print
+ *
  * Return: void
  */
-void check_elf(Elf64_Ehdr *header)
+void put_err(char *str)
 {
-int i = 0;
+int len = 0;
 
-if (header->e_ident[EI_MAG0] == 0x7f &&
-header->e_ident[EI_MAG1] == 'E' &&
-header->e_ident[EI_MAG2] == 'L' &&
-header->e_ident[EI_MAG3] == 'F')
+while (str[len])
+len++;
+write(STDERR_FILENO, str, len);
+}
+
+/**
+ * print_elf_header - prints the contents of an elf header (first half)
+ * @h: elf header
+ *
+ * Return: void
+ */
+void print_elf_header(void *h)
 {
+Elf32_Ehdr *header = h;
+unsigned char c, i;
+
 printf("ELF Header:\n");
 printf("  Magic:  ");
-
-for (i = 0; i < 16; i++)
-printf(" %02x", header->e_ident[i]);
+for (i = 0; i < EI_NIDENT; i++)
+printf(" %02x", header->e_ident[(int)i]);
 printf("\n");
-}
-else
-{
-dprintf(STDERR_FILENO, "Format error, not an ELF\n");
-exit(98);
-}
+
+printf("  Class:                             ");
+c = header->e_ident[EI_CLASS];
+printf(c == ELFCLASS32 ? "ELF32"
+: c == ELFCLASS64 ? "ELF64"
+: c == ELFCLASSNONE ? "none" : "<unknown: %x>", c);
+printf("\n");
+
+printf("  Data:                              ");
+c = header->e_ident[EI_DATA];
+printf(c == ELFDATA2LSB ? "2's complement, little endian"
+: c == ELFDATA2MSB ? "2's complement, big endian"
+: c == ELFDATANONE ? "none"
+: "<unknown: %x>", c);
+printf("\n");
+
+printf("  Version:                           ");
+c = header->e_ident[EI_VERSION];
+printf("%d%s", c, c == EV_CURRENT ? " (current)"
+: c > EV_CURRENT || c == EV_NONE ? " <unknown>" : "");
+printf("\n");
+
+print_elf_header_2(h);
 }
 
 /**
- * check_class - function that checks the class of ELF format of the file
- * @header: pointer to the ELF header struct
+ * print_elf_header_2 - prints the contents of an elf header (second half)
+ * @h: elf header
+ *
  * Return: void
  */
-void check_class(Elf64_Ehdr *header)
+void print_elf_header_2(void *h)
 {
-if (header->e_ident[EI_CLASS] == ELFCLASS32)
-printf("  Class:                             ELF32\n");
-if (header->e_ident[EI_CLASS] == ELFCLASS64)
-printf("  Class:                             ELF64\n");
+Elf32_Ehdr *header = h;
+unsigned char c, little_e = header->e_ident[EI_DATA] == ELFDATA2LSB,
+bit_32 = header->e_ident[EI_CLASS] == ELFCLASS32;
+uint16_t t2;
+
+printf("  OS/ABI:                            ");
+c = header->e_ident[EI_OSABI];
+printf(c == ELFOSABI_NONE || c == ELFOSABI_SYSV ? "UNIX - System V"
+: c == ELFOSABI_HPUX ? "UNIX - HP-UX"
+: c == ELFOSABI_NETBSD ? "UNIX - NetBSD"
+: c == ELFOSABI_LINUX || c == ELFOSABI_GNU ? "UNIX - GNU"
+: c == ELFOSABI_SOLARIS ? "UNIX - Solaris"
+: c == ELFOSABI_IRIX ? "UNIX - IRIX"
+: c == ELFOSABI_FREEBSD ? "UNIX - FreeBSD"
+: c == ELFOSABI_TRU64 ? "UNIX - TRU64"
+: c == ELFOSABI_ARM ? "UNIX - ARM architecture"
+: "<unknown: %x>", c), printf("\n");
+
+printf("  ABI Version:                       ");
+c = header->e_ident[EI_ABIVERSION];
+printf("%d", c), printf("\n");
+
+printf("  Type:                              ");
+t2 = header->e_type;
+ensure_endianness(little_e, &t2, 2);
+printf(t2 == ET_NONE ? "NONE (None)" :
+t2 == ET_REL ? "REL (Relocatable file)"
+: t2 == ET_EXEC ? "EXEC (Executable file)"
+: t2 == ET_DYN ? "DYN (Shared object file)"
+: t2 == ET_CORE ? "CORE (Core file)"
+: t2 == ET_LOOS ? "OS Specific: (fe00)"
+: t2 == ET_HIOS ? "OS Specific: (feff)"
+: t2 == ET_LOPROC ? "Processor Specific: (ff00)"
+: t2 == ET_HIPROC ? "Processor Specific: (ffff)"
+: "<unknown>: %x", t2), printf("\n");
+
+printf("  Entry point address:               ");
+ensure_endianness(little_e, &header->e_entry, bit_32 ? 4 : 8);
+printf("0x%lx", bit_32 ? *((uint32_t *)&header->e_entry)
+: *((uint64_t *)&header->e_entry)), printf("\n");
 }
 
 /**
- * check_data_ver - function that checks the data and version of ELF
- * @header: pointer to the ELF header struct
- * Return: void
+ * main - prints the elf header information of a file
+ * @argc: argument count
+ * @argv: arguments
+ *
+ * Return: 0 if the file's elf header was read successfully
  */
-void check_data_ver(Elf64_Ehdr *header)
+int main(int argc, char *argv[])
 {
-if (header->e_ident[EI_DATA] == ELFDATA2LSB)
-puts("  Data:                              2's complement, little endian");
-if (header->e_ident[EI_DATA] == ELFDATA2MSB)
-printf("  Data:                              2's complement, big endian\n");
-if (header->e_ident[EI_VERSION] != 1)
-printf("  Version:                           1\n");
-if (header->e_ident[EI_VERSION] == 1)
-printf("  Version:                           1 (current)\n");
-if (header->e_ident[EI_OSABI] == ELFOSABI_NONE)
-printf("  OS/ABI:                            UNIX - System V\n");
-else if (header->e_ident[EI_OSABI] == ELFOSABI_SYSV)
-printf("  OS/ABI:                            UNIX - System V\n");
-if (header->e_ident[EI_OSABI] == ELFOSABI_NETBSD)
-printf("  OS/ABI:                            UNIX - NetBSD\n");
-if (header->e_ident[EI_OSABI] == ELFOSABI_SOLARIS)
-printf("  OS/ABI:                            UNIX - Solaris\n");
-if (header->e_ident[EI_OSABI] == 0x53)
-printf("  OS/ABI:                            <unknown: 53>\n");
-if (header->e_ident[EI_ABIVERSION] == 0)
-printf("  ABI Version:                       0\n");
-if (header->e_ident[EI_ABIVERSION] == 1)
-printf("  ABI Version:                       1\n");
-}
-
-/**
- * check_type - function that checks the type of ELF file
- * @header: pointer to the ELF header struct
- * Return: void
- */
-void check_type(Elf64_Ehdr *header)
-{
-if (header->e_type == ET_EXEC)
-printf("  Type:                              EXEC (Executable file)\n");
-if (header->e_type == ET_NONE)
-printf("  Type:                              Unknown type\n");
-}
-
-/**
- * check_entry - function that checks the type of ELF file
- * @header: pointer to the ELF header struct
- * Return: void
- */
-void check_entry(Elf64_Ehdr *header)
-{
-if (header->e_entry)
-printf("  Entry point address:               0x%x\n", (int)header->e_entry);
-else
-printf("  Entry point address:               0\n");
-}
-
-/**
- * main - program that prints ELF header formated
- * @argc: number of arguments passed to the program
- * @argv: string containing of the program and the ELF file
- * Return: 0 on success
- */
-
-int main(int argc, char **argv)
-{
-int fd64, read_char = 1;
-Elf64_Ehdr *header, size;
+char *filename, header[ELF64_HEADER_SIZE] = {0}, bit_32;
+int handle, read_len;
+Elf32_Ehdr *header32 = (void *)header;
 
 if (argc != 2)
-{
-printf("Usage: elf_header elf_filename\n");
-exit(98);
-}
+return (put_err("Usage: elf_header elf_filename\n"), 98);
+filename = argv[1], handle = open(filename, O_RDONLY);
+if (handle == -1)
+return (put_err("readelf: Error: "), put_err(filename),
+put_err(": Failed to read file's magic number\n"), 98);
+read_len = read(handle, header, ELF64_HEADER_SIZE);
+if (read_len == -1)
+return (put_err("readelf: Error: "), put_err(filename),
+put_err(": Failed to read file's magic number\n"), 98);
+bit_32 = header32->e_ident[EI_CLASS] == ELFCLASS32;
+if (read_len < (int)ELF32_HEADER_SIZE ||
+(!bit_32 && read_len != ELF64_HEADER_SIZE) ||
+!((header32->e_ident[EI_MAG0] == ELFMAG0) &&
+(header32->e_ident[EI_MAG1] == ELFMAG1) &&
+(header32->e_ident[EI_MAG2] == ELFMAG2) &&
+(header32->e_ident[EI_MAG3] == ELFMAG3)))
+return (put_err("readelf: Error: Not an ELF file - "),
+put_err("it has the wrong magic bytes at the start\n"), 98);
 
-header = malloc(sizeof(size));
-if (!header)
-exit(98);
-
-fd64 = open(argv[1], O_RDONLY);
-if (fd64 < 0)
-read_error(argv[1]);
-
-read_char = read(fd64, header, sizeof(size));
-if (read_char < 0)
-read_error(argv[1]);
-
-check_elf(header);
-check_class(header);
-check_data_ver(header);
-check_type(header);
-check_entry(header);
-
-free(header);
-close(fd64);
+print_elf_header(header32);
+close(handle);
 return (0);
 }
