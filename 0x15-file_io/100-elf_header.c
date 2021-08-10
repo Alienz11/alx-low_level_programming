@@ -1,12 +1,7 @@
-#define _POSIX_C_SOURCE 200809L
+#include "main.h"
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <inttypes.h>
 #include <elf.h>
+#include <inttypes.h>
 
 #define ELF32_HEADER_SIZE (sizeof(Elf32_Ehdr))
 #define ELF64_HEADER_SIZE (sizeof(Elf64_Ehdr))
