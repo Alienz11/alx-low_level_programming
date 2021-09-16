@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * dlistint_len - counts elements of doubly linked list
+ * dlistint_len - dlistint_len - counts elements of doubly linked list
  * @h: linked list
  *
  * Return: number of nodes
@@ -20,6 +20,5 @@ while (current != NULL)
 current = current->next;
 num_elem++;
 }
-
 return (num_elem);
 }
