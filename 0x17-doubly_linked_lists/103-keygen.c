@@ -80,7 +80,7 @@ j = 0;
 while (j < len)
 {
 c = str[j];
-i = c * i;
+i = c *i;
 ++j;
 }
 return ((i ^ 85) & 63);
@@ -133,7 +133,7 @@ while (j < len)
 {
 a = str[j];
 b = str[j];
-i = i + b * a;
+i = i + b *a;
 ++j;
 }
 c = i;
