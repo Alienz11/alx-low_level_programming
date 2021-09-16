@@ -17,7 +17,6 @@ const dlistint_t *current = h;
 
 while (current != NULL)
 {
-if (current->n)
 current = current->next;
 num_elem++;
 }
