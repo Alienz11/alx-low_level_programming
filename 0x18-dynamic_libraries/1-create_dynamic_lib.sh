@@ -1,2 +1,3 @@
 #!/bin/bash
-gcc -g -wall -o app app.c liball.so
+gcc -c *.c
+gcc -g -fPIC -Wall -Werror -Wextra -pedantic -shared -o liball.so
