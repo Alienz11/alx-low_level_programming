@@ -1,0 +1,1 @@
+**This folder/directory displays all the under-pinnings of Dynamic Libraries and Linking in C programming language**
