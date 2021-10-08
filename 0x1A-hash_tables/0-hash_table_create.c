@@ -15,11 +15,17 @@ hash_table_t *table;
 if (size <= 0)
 return (NULL);
 
-if (size)
-{
 table = (hash_table_t *)malloc(size * sizeof(hash_table_t));
+if (table == NULL)
+return (NULL);
+
+table->array = malloc(size * sizeof(hash_table_t));
+if (table->array == NULL)
+return (NULL);
+
+memset(table->array, 0, size * sizeof(hash_table_t));
+
 table->size = size;
-}
 
 return (table);
 }
