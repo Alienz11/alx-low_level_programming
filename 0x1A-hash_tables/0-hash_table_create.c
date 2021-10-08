@@ -17,7 +17,7 @@ return (NULL);
 
 if (size)
 {
-table = (hash_table_t *)malloc(size * sizeof(unsigned long int));
+table = (hash_table_t *)malloc(size * sizeof(hash_table_t));
 table->size = size;
 }
 
