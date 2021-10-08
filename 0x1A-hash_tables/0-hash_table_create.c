@@ -11,19 +11,25 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 /* Creates a new HashTable*/
 hash_table_t *table;
+/*unsigned long int i;*/
 
 if (size < 1)
 return (NULL);
 
 table = (hash_table_t *)malloc(size * sizeof(hash_table_t));
-if (table == NULL)
+if (!table)
+{
+free (table);
 return (NULL);
-
-table->array = malloc(size * sizeof(hash_table_t));
-if (table->array == NULL)
-return (NULL);
-
+}
 table->size = size;
+table->array = malloc(size * sizeof(hash_table_t));
+
+if (!table->array)
+{
+free (table);
+return (NULL);
+}
 
 return (table);
 }
