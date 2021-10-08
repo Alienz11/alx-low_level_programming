@@ -23,8 +23,6 @@ table->array = malloc(size * sizeof(hash_table_t));
 if (table->array == NULL)
 return (NULL);
 
-memset(table->array, 0, size * sizeof(hash_table_t));
-
 table->size = size;
 
 return (table);
