@@ -1,0 +1,11 @@
+CC=gcc
+SRC=main.c school.c
+OBJ=main.o school.o
+
+all: NAME
+
+NAME: main.o school.o
+	$(CC) $(OBJ) -o holberton
+
+source: main.c school.c
+	$(CC) -c $(SRC)
